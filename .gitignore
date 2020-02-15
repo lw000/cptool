@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/.gitignore
+.idea/code-comments.xml
+.idea/cptool.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/thriftCompiler.xml
+.idea/vcs.xml
+GateServer/
+cptool
+cptool.exe
+cptool.zip
+gateserver.tar.gz

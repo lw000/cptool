@@ -17,6 +17,7 @@ import (
 // cptool -src=./GateServer/ -s=1000 -e=1000 -o=8850
 
 var (
+	v         bool
 	h         bool
 	source    string
 	oldPort   int
@@ -24,7 +25,15 @@ var (
 	endPort   int
 )
 
+var (
+	BuildVersion string
+	BuildTime    string
+	BuildName    string
+	CommitID     string
+)
+
 func init() {
+	flag.BoolVar(&v, "v", false, "版本")
 	flag.BoolVar(&h, "h", false, "帮助")
 	flag.StringVar(&source, "src", "", "源文件夹")
 	flag.IntVar(&startPort, "s", 0, "网关服务起始端口")
@@ -37,6 +46,14 @@ func main() {
 	if h {
 		flag.Usage()
 		return
+	}
+
+	if v {
+		log.Printf("build name:\t%s\n", BuildName)
+		log.Printf("build ver:\t%s\n", BuildVersion)
+		log.Printf("build time:\t%s\n", BuildTime)
+		log.Printf("Commit ID:\t%s\n", CommitID)
+		os.Exit(0)
 	}
 
 	if source == "" {
